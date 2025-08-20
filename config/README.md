@@ -12,7 +12,7 @@ The configuration files of Nginx and Supervisor.
     - [Nginx in Tokyo](#nginx-in-tokyo)
     - [Nginx in macOS](#nginx-in-macos)
     - [Supervisor in Guangzhou lighthouse](#supervisor-in-guangzhou-lighthouse)
-    - [Supervisor in Japan Vultr](#supervisor-in-japan-vultr)
+    - [Supervisor in Tokyo](#supervisor-in-tokyo)
     - [Supervisor in macOS](#supervisor-in-macos)
   - [Reference](#reference)
 
@@ -88,6 +88,8 @@ cd /web/conf && git pull && systemctl restart nginx
 
 ### Nginx in macOS
 
+The configuration file: `/usr/local/etc/nginx/nginx.conf`.
+
 Start:
 
 ```bash
@@ -130,7 +132,7 @@ Restart:
 systemctl restart supervisord
 ```
 
-### Supervisor in Japan Vultr
+### Supervisor in Tokyo
 
 Edit in the `/etc/supervisord.conf`: `files = /web/conf/config/supervisorjapan/*.ini`.
 
