@@ -8,7 +8,6 @@ The configuration files of Nginx and Supervisor.
     - [Supervisor Configuration](#supervisor-configuration)
   - [Servers](#servers)
     - [Nginx in Guangzhou lighthouse](#nginx-in-guangzhou-lighthouse)
-    - [Nginx in Guangzhou cvm](#nginx-in-guangzhou-cvm)
     - [Nginx in Tokyo](#nginx-in-tokyo)
     - [Nginx in macOS](#nginx-in-macos)
     - [Supervisor in Guangzhou lighthouse](#supervisor-in-guangzhou-lighthouse)
@@ -59,16 +58,6 @@ files = /your/path2/*.ini
 ### Nginx in Guangzhou lighthouse
 
 Edit in the default config: `include /web/conf/config/nginxnode/*.conf;`.
-
-Update Nginx server.
-
-```bash
-cd /web/conf && git pull && service nginx restart
-```
-
-### Nginx in Guangzhou cvm
-
-Edit in the default config: `include /web/conf/config/nginxmazey/*.conf;`.
 
 Update Nginx server.
 
