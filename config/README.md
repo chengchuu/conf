@@ -67,6 +67,8 @@ cd /web/conf && git pull && service nginx restart
 
 ### Nginx in Tokyo
 
+Default Config Path: `/etc/nginx/nginx.conf`.
+
 Edit in the default config: `include /web/conf/config/nginxgee/*.conf;`.
 
 Update Nginx server.
