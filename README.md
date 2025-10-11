@@ -22,6 +22,34 @@ Web Assets:
 html|css|js|json|htm|shtml|xml|ts
 ```
 
+## Nginx
+
+### macOS
+
+Start:
+
+```bash
+/usr/local/bin/nginx
+```
+
+Reload:
+
+```bash
+nginx -s reload
+```
+
+Stop:
+
+```bash
+nginx -s stop
+```
+
+Check the status:
+
+```bash
+nginx -t
+```
+
 ## Reference
 
 1. Nginx Example: <https://nginx.org/en/docs/example.html>
