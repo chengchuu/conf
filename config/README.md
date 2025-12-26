@@ -18,12 +18,6 @@ Linux:
 vim /etc/nginx/nginx.conf
 ```
 
-Mac:
-
-```bash
-vim /usr/local/etc/nginx/nginx.conf
-```
-
 ### Supervisor Configuration
 
 Linux:
