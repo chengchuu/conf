@@ -26,6 +26,12 @@ html|css|js|json|htm|shtml|xml|ts
 
 ### macOS
 
+Edit the configuration file:
+
+```bash
+vim /usr/local/etc/nginx/nginx.conf
+```
+
 Start:
 
 ```bash
