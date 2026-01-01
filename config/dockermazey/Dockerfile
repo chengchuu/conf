@@ -3,7 +3,7 @@ FROM golang:1.23-alpine as go-builder
 WORKDIR /gee
 COPY ./go-gin-gee .
 RUN go mod download
-RUN go run scripts/init/main.go -copyData="config.json,database.db,index.tmpl"
+RUN go run scripts/init/main.go -copyData="config.prd.json,database.db,index.tmpl"
 RUN go build -o ./dist/api ./cmd/api/main.go
 
 # STAGE: Base
