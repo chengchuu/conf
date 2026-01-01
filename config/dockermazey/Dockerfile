@@ -1,18 +1,25 @@
 # STAGE: Go
-FROM golang:1.23-alpine as go-builder
+FROM golang:1.23-bookworm as go-builder
 WORKDIR /gee
+# Dependencies
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+    gcc libc6-dev libsqlite3-dev
+ENV CGO_ENABLED=1 \
+    GO111MODULE=on
 COPY ./go-gin-gee .
-RUN go mod download
-RUN go run scripts/init/main.go -copyData="config.prd.json,database.db,index.tmpl"
+RUN go mod download && \
+    go run scripts/init/main.go -copyData="config.prd.json,database.db,index.tmpl"
 RUN go build -o ./dist/api ./cmd/api/main.go
 
 # STAGE: Base
 FROM debian:bookworm-slim as base-builder
 WORKDIR /web
 
-# Base
+# Dependencies
 RUN apt-get update && \
-    apt-get install -y curl vim gnupg ca-certificates supervisor nginx
+    apt-get install -y curl vim tzdata gnupg ca-certificates supervisor nginx && \
+    update-ca-certificates
 
 # All Project Files
 COPY . .
