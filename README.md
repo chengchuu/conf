@@ -22,9 +22,19 @@ Web Assets:
 html|css|js|json|htm|shtml|xml|ts
 ```
 
-## Nginx
+## Ubuntu 18.x
 
-### macOS
+### Nginx
+
+Update:
+
+```bash
+service nginx restart
+```
+
+## macOS
+
+### Nginx
 
 Edit the configuration file:
 
