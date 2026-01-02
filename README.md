@@ -26,10 +26,34 @@ html|css|js|json|htm|shtml|xml|ts
 
 ### Nginx
 
+Edit the configuration file:
+
+```bash
+vim /etc/nginx/nginx.conf
+```
+
+Start:
+
+```bash
+service nginx start
+```
+
 Update:
 
 ```bash
 service nginx restart
+```
+
+Stop:
+
+```bash
+service nginx stop
+```
+
+Check the status:
+
+```bash
+service nginx status
 ```
 
 ## macOS
