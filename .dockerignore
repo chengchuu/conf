@@ -28,3 +28,6 @@
 
 # LOG
 **/var-log-web
+
+# Archives
+**/*.tar.gz
