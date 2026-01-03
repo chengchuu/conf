@@ -1,7 +1,7 @@
 #!/bin/bash
-# bash ./docker-build.sh -r
-
-echo "Start Build Docker"
+# bash ./docker-migrate.sh && bash ./docker-build.sh -r
+set -e
+echo "Build Docker ..."
 
 # Define command-line flags
 RUN_FLAG="RUN"
@@ -22,11 +22,6 @@ while [[ $# -gt 0 ]]; do
       ;;
   esac
 done
-
-# Migrate Dcockerfile & Conf
-\cp -f ./conf/config/dockernode/Dockerfile ./
-\cp -f ./conf/.dockerignore ./
-\cp ./server/config/node-feperf-monitor-server/config.prod.js ./node-feperf-monitor-server/config/config.prod.js;
 
 # ProjectName
 ProjectName="web"
