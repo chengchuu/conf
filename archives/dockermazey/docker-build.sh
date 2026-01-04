@@ -1,5 +1,5 @@
 #!/bin/bash
-# bash ./docker-build.sh -r "ENV1=123" "ENV2=456"
+# bash ./docker-migrate.sh && bash ./docker-build.sh -r
 
 echo "Start Build Docker"
 
@@ -48,15 +48,8 @@ done
 
 echo "ENV_VARS: ${ENV_VARS}"
 
-# Migrate Dcockerfile & Conf
-\cp -f ./conf/config/dockermazey/Dockerfile ./
-\cp -f ./conf/.dockerignore ./
-\cp -f ./server/config/go-gin-gee/config.secret.json ./go-gin-gee/assets/data/config.prd.json
-
 # Stop
 echo "Stop Docker Containers"
-# docker ps
-# docker ps|awk '{if (NR!=1) print $1}'| xargs docker stop
 RUNNING_CONTAINERS=$(docker ps -q)
 if [ -n "${RUNNING_CONTAINERS}" ]; then
   docker stop ${RUNNING_CONTAINERS}
@@ -66,8 +59,6 @@ fi
 
 # Remove
 echo "Remove Docker Containers"
-# docker ps -a -q
-# docker rm $(docker ps -a -q)
 ALL_CONTAINERS=$(docker ps -a -q)
 if [ -n "${ALL_CONTAINERS}" ]; then
   docker rm ${ALL_CONTAINERS}
@@ -89,7 +80,9 @@ if [ ${RUN_FLAG} = "RUN" ]; then
   echo "Run Docker"
   echo "Environment variables: ${ENV_VARS}"
   echo "Docker Running ..."
+  echo "docker run --name \"${PROJECT_NAME}\" --restart unless-stopped ${ENV_VARS} -d -p \"${VISIT_PORT}:${INNER_PORT}\" -v \"VarLogWeb:/var/log/web\" \"${COMBINED_VERSION}\""
   docker run --name "${PROJECT_NAME}" \
+    --restart unless-stopped \
     ${ENV_VARS} \
     -d \
     -p "${VISIT_PORT}:${INNER_PORT}" \
@@ -106,3 +99,11 @@ else
   echo "REPOSITORY_TAGNAME: ${REPOSITORY_TAGNAME}"
   echo "All done."
 fi
+
+# Node 2025-01-03
+# docker run --name "web-node" --restart unless-stopped -d -p "7414:7414" "web:v2158"
+
+# Mazey 2026-01-04
+# mkdir -p /web/var-log-web
+# chmod -R 777 /web/var-log-web
+# docker run --name "web-mazey" --restart unless-stopped -e WECOM_ROBOT_CHECK="b2d57746-7146-44f2-8207-86cb0ca832be" -e BASE_URL="https://i.mazey.net" -d -p "80:80" -v "/web/var-log-web:/var/log/web" "web:v20260103001727"
