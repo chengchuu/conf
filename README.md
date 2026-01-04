@@ -4,33 +4,40 @@
 Conf provides some configurations for standard Linux tools, such as Nginx and Supervisor. It isn't easy to use the same modules in these tools, so the usage will depend on the fixed path in the system.
 
 - [Static File Type](#static-file-type)
-- [Debian 11.x/12.x/13.x](#debian-11x12x13x)
   - [Nginx](#nginx)
+- [Debian 11.x/12.x/13.x](#debian-11x12x13x)
+  - [Nginx](#nginx-1)
   - [Supervisor](#supervisor)
 - [Ubuntu 18.x](#ubuntu-18x)
-  - [Nginx](#nginx-1)
-- [macOS](#macos)
   - [Nginx](#nginx-2)
+- [macOS](#macos)
+  - [Nginx](#nginx-3)
 - [Reference](#reference)
 
 ## Static File Type
 
 All:
 
-```text
+```plain
 gif;png;bmp;jpeg;jpg;html;htm;shtml;xml;json;mp3;wma;flv;mp4;wmv;ogg;avi;doc;docx;xls;xlsx;ppt;pptx;txt;pdf;zip;exe;tat;ico;css;js;swf;apk;m3u8;ts
 ```
 
+### Nginx
+
 Images, Documents and Executables:
 
-```text
-png|jpeg|jpg|gif|ico|webp|mp3|mp4|webm|wma|bmp|swf|flv|wmv|avi|apk|m3u8|doc|docx|xls|xlsx|ppt|pptx|txt|pdf|zip|exe
+```plain
+location ~ .*\.(png|jpeg|jpg|gif|ico|webp|mp3|mp4|webm|wma|bmp|swf|flv|wmv|avi|apk|m3u8|doc|docx|xls|xlsx|ppt|pptx|txt|pdf|zip|exe)$ {
+    expires 30d;
+}
 ```
 
 Web Assets:
 
-```text
-html|css|js|json|htm|shtml|xml|ts
+```plain
+location ~ .*\.(html|css|js|json|htm|shtml|xml|ts)$ {
+    expires 24h;
+}
 ```
 
 ## Debian 11.x/12.x/13.x
