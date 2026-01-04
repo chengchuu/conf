@@ -1,6 +1,17 @@
+<!-- omit from toc -->
 # conf
 
 Conf provides some configurations for standard Linux tools, such as Nginx and Supervisor. It isn't easy to use the same modules in these tools, so the usage will depend on the fixed path in the system.
+
+- [Static File Type](#static-file-type)
+- [Debian 11.x/12.x/13.x](#debian-11x12x13x)
+  - [Nginx](#nginx)
+  - [Supervisor](#supervisor)
+- [Ubuntu 18.x](#ubuntu-18x)
+  - [Nginx](#nginx-1)
+- [macOS](#macos)
+  - [Nginx](#nginx-2)
+- [Reference](#reference)
 
 ## Static File Type
 
@@ -22,6 +33,64 @@ Web Assets:
 html|css|js|json|htm|shtml|xml|ts
 ```
 
+## Debian 11.x/12.x/13.x
+
+Install dependencies:
+
+```bash
+apt update
+apt upgrade -y
+apt install -y git nginx supervisor golang
+```
+
+Check:
+
+```bash
+go version
+git --version
+```
+
+### Nginx
+
+Edit the configuration file:
+
+```bash
+vim /etc/nginx/nginx.conf
+```
+
+Start and Enable Nginx service:
+
+```bash
+systemctl start nginx
+systemctl enable nginx
+# equivalent to:
+# systemctl enable --now nginx
+```
+
+Restart, Reload, Stop, Status:
+
+```bash
+systemctl restart nginx
+systemctl reload nginx
+systemctl stop nginx
+systemctl status nginx
+```
+
+### Supervisor
+
+Edit the configuration file:
+
+```bash
+vim /etc/supervisor/supervisord.conf
+```
+
+Enable Supervisor service:
+
+```bash
+systemctl enable --now supervisor
+systemctl status supervisor
+```
+
 ## Ubuntu 18.x
 
 ### Nginx
@@ -32,27 +101,12 @@ Edit the configuration file:
 vim /etc/nginx/nginx.conf
 ```
 
-Start:
+Start, Restart, Stop, Status:
 
 ```bash
 service nginx start
-```
-
-Update:
-
-```bash
 service nginx restart
-```
-
-Stop:
-
-```bash
 service nginx stop
-```
-
-Check the status:
-
-```bash
 service nginx status
 ```
 
