@@ -40,6 +40,43 @@ location ~ .*\.(html|css|js|json|htm|shtml|xml|ts)$ {
 }
 ```
 
+Although there is no strict specification, the following order is a commonly accepted best practice in the industry:
+
+```plain
+location /example/ {
+    # 1. Path-related directives
+    root /var/www/html;
+    # or
+    alias /var/www/html/example/;
+
+    # 2. Index files
+    index index.html index.htm;
+
+    # 3. File lookup order
+    try_files $uri $uri/ /index.html;
+
+    # 4. Error handling
+    error_page 404 = @fallback;
+    error_page 500 502 503 504 /50x.html;
+
+    # 5. Caching strategy
+    expires 30d;
+    add_header Cache-Control "public, immutable";
+
+    # 6. Security headers
+    add_header X-Frame-Options "SAMEORIGIN";
+    add_header X-Content-Type-Options "nosniff";
+
+    # 7. Access control
+    allow 192.168.1.0/24;
+    deny all;
+
+    # 8. Logging
+    access_log /var/log/nginx/example_access.log;
+    error_log /var/log/nginx/example_error.log;
+}
+```
+
 ## Debian 11.x/12.x/13.x
 
 Install dependencies:
