@@ -10,9 +10,10 @@ WORKDIR /web
 COPY ./node-feperf-monitor-server ./node-feperf-monitor-server
 COPY ./node-koa-rain ./node-koa-rain
 COPY ./server ./server
-COPY ./docker-start.sh ./docker-start.sh
-RUN chmod +x ./docker-start.sh
+# Script
+COPY ./webnode-docker-start.sh ./webnode-docker-start.sh
+RUN chmod +x ./webnode-docker-start.sh
 
-EXPOSE 80
+EXPOSE 3000 3224 7414
 
-CMD ["/bin/bash", "/web/docker-start.sh"]
+CMD ["/bin/bash", "/web/webnode-docker-start.sh"]
