@@ -99,11 +99,3 @@ else
   echo "REPOSITORY_TAGNAME: ${REPOSITORY_TAGNAME}"
   echo "All done."
 fi
-
-# Node 2025-01-03
-# docker run --name "web-node" --restart unless-stopped -d -p "7414:7414" "web:v2158"
-
-# Mazey 2026-01-04
-# mkdir -p /web/var-log-web
-# chmod -R 777 /web/var-log-web
-# docker run --name "web-mazey" --restart unless-stopped -e WECOM_ROBOT_CHECK="b2d57746-7146-44f2-8207-86cb0ca832be" -e BASE_URL="https://i.mazey.net" -d -p "80:80" -v "/web/var-log-web:/var/log/web" "web:v20260103001727"
