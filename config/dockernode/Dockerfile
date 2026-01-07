@@ -14,7 +14,7 @@ COPY ./server ./server
 RUN mkdir -p /web/node-koa-rain/temp \
     /web/server/temp
 # Script
-COPY ./webnode-docker-start.sh ./webnode-docker-start.sh
+COPY ./server/scripts/webdocker/webnode-docker-start.sh ./webnode-docker-start.sh
 RUN chmod +x ./webnode-docker-start.sh
 
 EXPOSE 3000 3224 7414
