@@ -37,7 +37,7 @@ RUN rm -rf /etc/nginx/sites-enabled/* \
     && rm -rf /etc/nginx/sites-available/* \
     && rm -rf /etc/nginx/conf.d/* \
     && rm -f /etc/nginx/nginx.conf
-COPY ./nginx.conf /etc/nginx/nginx.conf
+COPY ./conf/config/dockermazey/nginx.conf /etc/nginx/nginx.conf
 RUN nginx -t
 
 # Node.js
