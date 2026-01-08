@@ -1,19 +1,20 @@
 # STAGE: Go
 FROM golang:1.23-bookworm as go-builder
+ENV CGO_ENABLED=1 \
+    GO111MODULE=on
 WORKDIR /gee
 # Dependencies
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     gcc libc6-dev libsqlite3-dev
-ENV CGO_ENABLED=1 \
-    GO111MODULE=on
 COPY ./go-gin-gee .
 RUN go mod download && \
-    go run scripts/init/main.go -copyData="config.prd.json,database.db,index.tmpl"
-RUN go build -o ./dist/api ./cmd/api/main.go
+    go run scripts/init/main.go -copyData="config.prd.json,database.db,index.tmpl" && \
+    go build -o ./dist/api ./cmd/api/main.go
 
 # STAGE: Base
 FROM debian:bookworm-slim as base-builder
+ENV TZ=Asia/Shanghai
 WORKDIR /web
 
 # Dependencies
@@ -38,7 +39,6 @@ RUN rm -rf /etc/nginx/sites-enabled/* \
     && rm -rf /etc/nginx/conf.d/* \
     && rm -f /etc/nginx/nginx.conf
 COPY ./conf/config/dockermazey/nginx.conf /etc/nginx/nginx.conf
-# RUN nginx -t
 
 # Node.js
 # RUN apt update && \

@@ -1,5 +1,6 @@
 # STAGE: Base
 FROM node:10-buster as base-builder
+ENV TZ=Asia/Shanghai
 WORKDIR /web
 
 # Base
@@ -19,4 +20,5 @@ RUN chmod +x ./webnode-docker-start.sh
 
 EXPOSE 3000 3224 7414
 
-CMD ["/bin/bash", "/web/webnode-docker-start.sh"]
+# CMD ["/bin/bash", "/web/webnode-docker-start.sh"]
+ENTRYPOINT ["/web/webnode-docker-start.sh"]
