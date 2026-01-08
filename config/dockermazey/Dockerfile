@@ -38,7 +38,7 @@ RUN rm -rf /etc/nginx/sites-enabled/* \
     && rm -rf /etc/nginx/conf.d/* \
     && rm -f /etc/nginx/nginx.conf
 COPY ./conf/config/dockermazey/nginx.conf /etc/nginx/nginx.conf
-RUN nginx -t
+# RUN nginx -t
 
 # Node.js
 # RUN apt update && \
@@ -54,7 +54,12 @@ RUN chmod +x ./api
 RUN rm -rf /etc/supervisor/conf.d/*
 COPY ./conf/config/supervisormazey/*.conf /etc/supervisor/conf.d/
 
+# Entrypoint Script
+COPY ./conf/config/dockermazey/entrypoint.sh /web/entrypoint.sh
+RUN chmod +x /web/entrypoint.sh
+
 EXPOSE 80
 
 # ENTRYPOINT ./api --config-path="data/config.json"
+ENTRYPOINT ["/web/entrypoint.sh"]
 CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisor/supervisord.conf"]
