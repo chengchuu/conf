@@ -4,14 +4,14 @@
 Conf provides some configurations for standard Linux tools, such as Nginx and Supervisor. It isn't easy to use the same modules in these tools, so the usage will depend on the fixed path in the system.
 
 - [Static File Type](#static-file-type)
-  - [Nginx](#nginx)
+  - [Nginx Location](#nginx-location)
 - [Debian 11.x/12.x/13.x](#debian-11x12x13x)
-  - [Nginx](#nginx-1)
+  - [Nginx](#nginx)
   - [Supervisor](#supervisor)
 - [Ubuntu 18.x](#ubuntu-18x)
-  - [Nginx](#nginx-2)
+  - [Nginx](#nginx-1)
 - [macOS](#macos)
-  - [Nginx](#nginx-3)
+  - [Nginx](#nginx-2)
 - [Reference](#reference)
 
 ## Static File Type
@@ -22,7 +22,7 @@ All:
 gif;png;bmp;jpeg;jpg;html;htm;shtml;xml;json;mp3;wma;flv;mp4;wmv;ogg;avi;doc;docx;xls;xlsx;ppt;pptx;txt;pdf;zip;exe;tat;ico;css;js;swf;apk;m3u8;ts
 ```
 
-### Nginx
+### Nginx Location
 
 Images, Documents and Executables:
 

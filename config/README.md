@@ -1,12 +1,12 @@
+<!-- omit from toc -->
 # config
 
 The configuration files of Nginx and Supervisor.
 
-- [config](#config)
-  - [Default](#default)
-    - [Nginx Configuration](#nginx-configuration)
-    - [Supervisor Configuration](#supervisor-configuration)
-  - [Reference](#reference)
+- [Default](#default)
+  - [Nginx Configuration](#nginx-configuration)
+  - [Supervisor Configuration](#supervisor-configuration)
+- [Reference](#reference)
 
 ## Default
 
@@ -26,7 +26,7 @@ Linux:
 vim /etc/supervisord.conf
 ```
 
-Mac:
+macOS:
 
 ```bash
 vim /usr/local/etc/supervisord.conf
