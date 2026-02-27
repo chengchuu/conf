@@ -14,11 +14,10 @@ COPY ./server ./server
 # Create Directories
 RUN mkdir -p /web/node-koa-rain/temp \
     /web/server/temp
-# Script
-COPY ./server/scripts/webdocker/webnode-docker-start.sh ./webnode-docker-start.sh
-RUN chmod +x ./webnode-docker-start.sh
+# Entrypoint Script
+COPY ./conf/config/dockernode/entrypoint.sh ./entrypoint.sh
+RUN chmod +x ./entrypoint.sh
 
 EXPOSE 3000 3224 7414
 
-# CMD ["/bin/bash", "/web/webnode-docker-start.sh"]
-ENTRYPOINT ["/web/webnode-docker-start.sh"]
+ENTRYPOINT ["/web/entrypoint.sh"]
