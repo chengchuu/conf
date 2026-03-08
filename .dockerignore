@@ -32,4 +32,4 @@
 
 # Archives
 **/*.tar.gz
-**/asset_frozen/**
+**/asset_frozen
