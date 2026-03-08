@@ -31,3 +31,4 @@
 
 # Archives
 **/*.tar.gz
+**/asset_frozen/**

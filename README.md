@@ -3,18 +3,21 @@
 
 Conf provides some configurations for standard Linux tools, such as Nginx and Supervisor. It isn't easy to use the same modules in these tools, so the usage will depend on the fixed path in the system.
 
-- [Static File Type](#static-file-type)
-  - [Nginx](#nginx)
+- [Nginx](#nginx)
+  - [Static File Type](#static-file-type)
+  - [Location](#location)
 - [Debian 11.x/12.x/13.x](#debian-11x12x13x)
-  - [Nginx](#nginx-1)
+  - [Debian Nginx](#debian-nginx)
   - [Supervisor](#supervisor)
 - [Ubuntu 18.x](#ubuntu-18x)
-  - [Nginx](#nginx-2)
+  - [Ubuntu Nginx](#ubuntu-nginx)
 - [macOS](#macos)
-  - [Nginx](#nginx-3)
+  - [Air Nginx](#air-nginx)
 - [Reference](#reference)
 
-## Static File Type
+## Nginx
+
+### Static File Type
 
 All:
 
@@ -22,7 +25,7 @@ All:
 gif;png;bmp;jpeg;jpg;html;htm;shtml;xml;json;mp3;wma;flv;mp4;wmv;ogg;avi;doc;docx;xls;xlsx;ppt;pptx;txt;pdf;zip;exe;tat;ico;css;js;swf;apk;m3u8;ts
 ```
 
-### Nginx
+### Location
 
 Images, Documents and Executables:
 
@@ -79,7 +82,7 @@ location /example/ {
 
 ## Debian 11.x/12.x/13.x
 
-Install dependencies:
+Install Dependencies:
 
 ```bash
 apt update
@@ -94,15 +97,15 @@ go version
 git --version
 ```
 
-### Nginx
+### Debian Nginx
 
-Edit the configuration file:
+Edit the Configuration File:
 
 ```bash
 vim /etc/nginx/nginx.conf
 ```
 
-Start and Enable Nginx service:
+Start and Enable Nginx Service:
 
 ```bash
 systemctl start nginx
@@ -122,13 +125,13 @@ systemctl status nginx
 
 ### Supervisor
 
-Edit the configuration file:
+Edit the Configuration File:
 
 ```bash
 vim /etc/supervisor/supervisord.conf
 ```
 
-Enable Supervisor service:
+Enable Supervisor Service:
 
 ```bash
 systemctl enable --now supervisor
@@ -137,15 +140,15 @@ systemctl status supervisor
 
 ## Ubuntu 18.x
 
-### Nginx
+### Ubuntu Nginx
 
-Edit the configuration file:
+Edit the Configuration File:
 
 ```bash
 vim /etc/nginx/nginx.conf
 ```
 
-Start, Restart, Stop, Status:
+Start, Restart, Stop and Status:
 
 ```bash
 service nginx start
@@ -156,9 +159,9 @@ service nginx status
 
 ## macOS
 
-### Nginx
+### Air Nginx
 
-Edit the configuration file:
+Edit the Configuration File:
 
 ```bash
 vim /usr/local/etc/nginx/nginx.conf
@@ -182,7 +185,7 @@ Stop:
 nginx -s stop
 ```
 
-Check the status:
+Check the Status:
 
 ```bash
 nginx -t
