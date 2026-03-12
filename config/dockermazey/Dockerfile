@@ -8,6 +8,7 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     gcc libc6-dev libsqlite3-dev
 COPY ./go-gin-gee .
+# RUN go env -w GOPROXY=https://goproxy.cn
 RUN go mod download && \
     go run scripts/init/main.go -copyData="config.prd.json,database.db,index.tmpl" && \
     go build -o ./dist/api ./cmd/api/main.go
