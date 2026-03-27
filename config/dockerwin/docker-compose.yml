@@ -1,12 +1,13 @@
+name: webwin
+
 services:
   nginx:
     image: nginx:latest
-    container_name: win-nginx
-    ports:
-      - "80:80"
+    container_name: winnginx
+    network_mode: "host"
+    # ports:
+    #  - "80:80"
     volumes:
-      # Nginx server config
-      - /Users/cheng/web/conf/config/nginxwin/local.conf:/etc/nginx/conf.d/default.conf:ro
-      # Local videos -> container path used by alias /web/vid/
-      - /Users/cheng/web/x:/web/vid:ro
+      - "C:/Web/web/conf/config/nginxwin:/etc/nginx/conf.d"
+      - "E:/Web/vid:/web/vid"
     restart: unless-stopped
