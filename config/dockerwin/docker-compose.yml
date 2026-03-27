@@ -4,10 +4,12 @@ services:
   nginx:
     image: nginx:latest
     container_name: winnginx
-    network_mode: "host"
-    # ports:
-    #  - "80:80"
+    # network_mode: host
+    ports:
+     - "80:80"
     volumes:
+      - "C:/Web/web/conf:/web/conf"
+      - "C:/Web/web/x:/web/x"
       - "C:/Web/web/conf/config/nginxwin:/etc/nginx/conf.d"
-      - "E:/Web/vid:/web/vid"
+      - "E:/Web/web/vid:/web/vid"
     restart: unless-stopped
