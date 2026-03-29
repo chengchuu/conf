@@ -4,7 +4,6 @@ services:
   nginx:
     image: nginx:latest
     container_name: winnginx
-    # network_mode: host
     ports:
      - "80:80"
     volumes:
@@ -13,3 +12,17 @@ services:
       - "C:/Web/web/conf/config/nginxwin:/etc/nginx/conf.d"
       - "E:/Web/web/vid:/web/vid"
     restart: unless-stopped
+
+  alist:
+    image: xhofe/alist:latest
+    container_name: winalist
+    ports:
+     - "5245:5244"
+    volumes:
+      - "C:/Web/web/var-log-web/alist-data:/opt/alist/data"
+      - "E:/Web/web/vid:/vid"
+    restart: unless-stopped
+    environment:
+      - PUID=0
+      - PGID=0
+      - UMASK=022
