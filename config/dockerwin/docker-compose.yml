@@ -1,7 +1,7 @@
 name: webwin
 
 services:
-  nginx:
+  winnginx:
     image: nginx:latest
     container_name: winnginx
     ports:
@@ -13,9 +13,9 @@ services:
       - "E:/Web/web/vid:/web/vid"
     restart: unless-stopped
 
-  alist:
+  winlist:
     image: xhofe/alist:latest
-    container_name: winalist
+    container_name: winlist
     ports:
      - "5245:5244"
     volumes:
