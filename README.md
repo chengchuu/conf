@@ -8,7 +8,7 @@ Conf provides some configurations for standard Linux tools, such as Nginx and Su
   - [Location](#location)
 - [Debian 11.x/12.x/13.x](#debian-11x12x13x)
   - [Debian Nginx](#debian-nginx)
-  - [Supervisor](#supervisor)
+  - [Debian Supervisor](#debian-supervisor)
 - [Ubuntu 18.x](#ubuntu-18x)
   - [Ubuntu Nginx](#ubuntu-nginx)
 - [macOS](#macos)
@@ -123,7 +123,7 @@ systemctl stop nginx
 systemctl status nginx
 ```
 
-### Supervisor
+### Debian Supervisor
 
 Edit the Configuration File:
 
