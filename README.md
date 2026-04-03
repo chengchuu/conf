@@ -12,7 +12,9 @@ Conf provides some configurations for standard Linux tools, such as Nginx and Su
 - [Ubuntu 18.x](#ubuntu-18x)
   - [Ubuntu Nginx](#ubuntu-nginx)
 - [macOS](#macos)
-  - [Air Nginx](#air-nginx)
+  - [Intel Nginx](#intel-nginx)
+- [CentOS 6.8](#centos-68)
+  - [CentOS Nginx](#centos-nginx)
 - [Reference](#reference)
 
 ## Nginx
@@ -159,7 +161,7 @@ service nginx status
 
 ## macOS
 
-### Air Nginx
+### Intel Nginx
 
 Edit the Configuration File:
 
@@ -189,6 +191,16 @@ Check the Status:
 
 ```bash
 nginx -t
+```
+
+## CentOS 6.8
+
+### CentOS Nginx
+
+Restart:
+
+```bash
+service nginx restart
 ```
 
 ## Reference
