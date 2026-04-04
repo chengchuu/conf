@@ -19,8 +19,8 @@ services:
     ports:
      - "5245:5244"
     volumes:
-      - "C:/Web/web/var-log-web/alist-data:/opt/alist/data"
-      - "E:/Web/web/vid:/vid"
+      - "C:/Web/Database/alistdata:/opt/alist/data"
+      - "E:/Web/list:/list"
     restart: unless-stopped
     environment:
       - PUID=0
