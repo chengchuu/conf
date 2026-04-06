@@ -20,7 +20,8 @@ services:
      - "5245:5244"
     volumes:
       - "C:/Web/Database/alistdata:/opt/alist/data"
-      - "E:/Web/list:/list"
+      - "C:/Web/Database/alistimg:/web/img"
+      - "E:/Web/list:/web/list"
     restart: unless-stopped
     environment:
       - PUID=0
