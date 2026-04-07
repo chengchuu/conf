@@ -14,16 +14,13 @@ services:
     restart: unless-stopped
 
   winlist:
-    image: xhofe/alist:latest
+    image: openlistteam/openlist:latest
     container_name: winlist
-    ports:
-     - "5245:5244"
+    user: '0:0'
     volumes:
-      - "C:/Web/Database/alistdata:/opt/alist/data"
-      - "C:/Web/Database/alistimg:/web/img"
+      - "C:/Web/Database/openlistdata:/opt/openlist/data"
+      - "C:/Web/Database/openlistimg:/web/img"
       - "E:/Web/list:/web/list"
     restart: unless-stopped
     environment:
-      - PUID=0
-      - PGID=0
       - UMASK=022
