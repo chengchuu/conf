@@ -24,7 +24,19 @@ Conf provides some configurations for standard Linux tools, such as Nginx and Su
 All:
 
 ```plain
-gif;png;bmp;jpeg;jpg;html;htm;shtml;xml;json;mp3;wma;flv;mp4;wmv;ogg;avi;doc;docx;xls;xlsx;ppt;pptx;txt;pdf;zip;exe;tat;ico;css;js;swf;apk;m3u8;ts
+avif;webp;gif;png;bmp;jpeg;jpg;html;htm;shtml;xml;json;mp3;wma;flv;mp4;wmv;ogg;avi;doc;docx;xls;xlsx;ppt;pptx;txt;pdf;zip;exe;tar;ico;css;js;swf;apk;m3u8;ts;woff;woff2;ttf;eot
+```
+
+Web Assets:
+
+```plain
+avif;webp;gif;png;bmp;jpeg;jpg;svg;ico;css;js;html;htm;shtml;xml;json;woff;woff2;ttf;eot
+```
+
+Media Files:
+
+```plain
+mp3;wma;flv;mp4;wmv;ogg;avi;m3u8;ts;deb;iso;zip;gz;tar;7z;apk
 ```
 
 ### Location
