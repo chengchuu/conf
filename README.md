@@ -3,26 +3,43 @@
 
 Conf provides some configurations for standard Linux tools, such as Nginx and Supervisor. It isn't easy to use the same modules in these tools, so the usage will depend on the fixed path in the system.
 
-- [Static File Type](#static-file-type)
-  - [Nginx Location](#nginx-location)
+- [Nginx](#nginx)
+  - [Static File Type](#static-file-type)
+  - [Location](#location)
 - [Debian 11.x/12.x/13.x](#debian-11x12x13x)
-  - [Nginx](#nginx)
-  - [Supervisor](#supervisor)
+  - [Debian Nginx](#debian-nginx)
+  - [Debian Supervisor](#debian-supervisor)
 - [Ubuntu 18.x](#ubuntu-18x)
-  - [Nginx](#nginx-1)
+  - [Ubuntu Nginx](#ubuntu-nginx)
 - [macOS](#macos)
-  - [Nginx](#nginx-2)
+  - [Intel Nginx](#intel-nginx)
+- [CentOS 6.8](#centos-68)
+  - [CentOS Nginx](#centos-nginx)
 - [Reference](#reference)
 
-## Static File Type
+## Nginx
+
+### Static File Type
 
 All:
 
 ```plain
-gif;png;bmp;jpeg;jpg;html;htm;shtml;xml;json;mp3;wma;flv;mp4;wmv;ogg;avi;doc;docx;xls;xlsx;ppt;pptx;txt;pdf;zip;exe;tat;ico;css;js;swf;apk;m3u8;ts
+avif;webp;gif;png;bmp;jpeg;jpg;html;htm;shtml;xml;json;mp3;wma;flv;mp4;wmv;ogg;avi;doc;docx;xls;xlsx;ppt;pptx;txt;pdf;zip;exe;tar;ico;css;js;swf;apk;m3u8;ts;woff;woff2;ttf;eot
 ```
 
-### Nginx Location
+Web Assets:
+
+```plain
+avif;webp;gif;png;bmp;jpeg;jpg;svg;ico;css;js;html;htm;shtml;xml;json;woff;woff2;ttf;eot
+```
+
+Media Files:
+
+```plain
+mp3;wma;flv;mp4;wmv;ogg;avi;m3u8;ts;deb;iso;zip;gz;tar;7z;apk
+```
+
+### Location
 
 Images, Documents and Executables:
 
@@ -79,7 +96,7 @@ location /example/ {
 
 ## Debian 11.x/12.x/13.x
 
-Install dependencies:
+Install Dependencies:
 
 ```bash
 apt update
@@ -94,15 +111,15 @@ go version
 git --version
 ```
 
-### Nginx
+### Debian Nginx
 
-Edit the configuration file:
+Edit the Configuration File:
 
 ```bash
 vim /etc/nginx/nginx.conf
 ```
 
-Start and Enable Nginx service:
+Start and Enable Nginx Service:
 
 ```bash
 systemctl start nginx
@@ -120,15 +137,15 @@ systemctl stop nginx
 systemctl status nginx
 ```
 
-### Supervisor
+### Debian Supervisor
 
-Edit the configuration file:
+Edit the Configuration File:
 
 ```bash
 vim /etc/supervisor/supervisord.conf
 ```
 
-Enable Supervisor service:
+Enable Supervisor Service:
 
 ```bash
 systemctl enable --now supervisor
@@ -137,15 +154,15 @@ systemctl status supervisor
 
 ## Ubuntu 18.x
 
-### Nginx
+### Ubuntu Nginx
 
-Edit the configuration file:
+Edit the Configuration File:
 
 ```bash
 vim /etc/nginx/nginx.conf
 ```
 
-Start, Restart, Stop, Status:
+Start, Restart, Stop and Status:
 
 ```bash
 service nginx start
@@ -156,9 +173,9 @@ service nginx status
 
 ## macOS
 
-### Nginx
+### Intel Nginx
 
-Edit the configuration file:
+Edit the Configuration File:
 
 ```bash
 vim /usr/local/etc/nginx/nginx.conf
@@ -182,10 +199,20 @@ Stop:
 nginx -s stop
 ```
 
-Check the status:
+Check the Status:
 
 ```bash
 nginx -t
+```
+
+## CentOS 6.8
+
+### CentOS Nginx
+
+Restart:
+
+```bash
+service nginx restart
 ```
 
 ## Reference
