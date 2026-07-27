@@ -8,11 +8,13 @@ Conf provides some configurations for standard Linux tools, such as Nginx and Su
   - [Location](#location)
 - [Debian 11.x/12.x/13.x](#debian-11x12x13x)
   - [Debian Nginx](#debian-nginx)
-  - [Supervisor](#supervisor)
+  - [Debian Supervisor](#debian-supervisor)
 - [Ubuntu 18.x](#ubuntu-18x)
   - [Ubuntu Nginx](#ubuntu-nginx)
 - [macOS](#macos)
-  - [Air Nginx](#air-nginx)
+  - [Intel Nginx](#intel-nginx)
+- [CentOS 6.8](#centos-68)
+  - [CentOS Nginx](#centos-nginx)
 - [Reference](#reference)
 
 ## Nginx
@@ -22,7 +24,19 @@ Conf provides some configurations for standard Linux tools, such as Nginx and Su
 All:
 
 ```plain
-gif;png;bmp;jpeg;jpg;html;htm;shtml;xml;json;mp3;wma;flv;mp4;wmv;ogg;avi;doc;docx;xls;xlsx;ppt;pptx;txt;pdf;zip;exe;tat;ico;css;js;swf;apk;m3u8;ts
+avif;webp;gif;png;bmp;jpeg;jpg;html;htm;shtml;xml;json;mp3;wma;flv;mp4;wmv;ogg;avi;doc;docx;xls;xlsx;ppt;pptx;txt;pdf;zip;exe;tar;ico;css;js;swf;apk;m3u8;ts;woff;woff2;ttf;eot
+```
+
+Web Assets:
+
+```plain
+avif;webp;gif;png;bmp;jpeg;jpg;svg;ico;css;js;html;htm;shtml;xml;json;woff;woff2;ttf;eot
+```
+
+Media Files:
+
+```plain
+mp3;wma;flv;mp4;wmv;ogg;avi;m3u8;ts;deb;iso;zip;gz;tar;7z;apk
 ```
 
 ### Location
@@ -123,7 +137,7 @@ systemctl stop nginx
 systemctl status nginx
 ```
 
-### Supervisor
+### Debian Supervisor
 
 Edit the Configuration File:
 
@@ -159,7 +173,7 @@ service nginx status
 
 ## macOS
 
-### Air Nginx
+### Intel Nginx
 
 Edit the Configuration File:
 
@@ -189,6 +203,16 @@ Check the Status:
 
 ```bash
 nginx -t
+```
+
+## CentOS 6.8
+
+### CentOS Nginx
+
+Restart:
+
+```bash
+service nginx restart
 ```
 
 ## Reference
