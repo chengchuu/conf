@@ -12,6 +12,7 @@ Conf provides some configurations for standard Linux tools, such as Nginx and Su
 - [Ubuntu 18.x](#ubuntu-18x)
   - [Ubuntu Nginx](#ubuntu-nginx)
 - [macOS](#macos)
+  - [M5 Nginx](#m5-nginx)
   - [Intel Nginx](#intel-nginx)
 - [CentOS 6.8](#centos-68)
   - [CentOS Nginx](#centos-nginx)
@@ -172,6 +173,38 @@ service nginx status
 ```
 
 ## macOS
+
+### M5 Nginx
+
+Edit the Configuration File:
+
+```bash
+vim /opt/homebrew/etc/nginx/nginx.conf
+```
+
+Start:
+
+```bash
+nginx
+```
+
+Reload:
+
+```bash
+nginx -s reload
+```
+
+Stop:
+
+```bash
+nginx -s quit
+```
+
+Check the Status:
+
+```bash
+nginx -t
+```
 
 ### Intel Nginx
 
