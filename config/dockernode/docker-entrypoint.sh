@@ -10,7 +10,3 @@ npm run start
 cd /web/server
 npm ci
 npm run start
-# Feperf
-cd /web/node-feperf-monitor-server
-npm ci
-npm run start-prod
