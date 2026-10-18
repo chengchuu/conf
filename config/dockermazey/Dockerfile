@@ -35,16 +35,18 @@ RUN rm -rf /etc/nginx/sites-enabled/* \
     && rm -rf /etc/nginx/sites-available/* \
     && rm -rf /etc/nginx/conf.d/* \
     && rm -f /etc/nginx/nginx.conf
-COPY ./conf/config/dockermazey/nginx.conf /etc/nginx/nginx.conf
+COPY ./server/scripts/webdocker/config/webmazey/nginx.conf /etc/nginx/nginx.conf
+COPY ./server/scripts/webdocker/config/webmazey/conf.d/ /etc/nginx/conf.d/
 # Go Service
 COPY --from=go-builder /gee/dist/api /web/api
 COPY --from=go-builder /gee/data /web/data
 RUN chmod +x ./api
 # Supervisor
 RUN rm -rf /etc/supervisor/conf.d/*
-COPY ./conf/config/supervisormazey/*.conf /etc/supervisor/conf.d/
+COPY ./server/scripts/webdocker/config/webmazey/api.conf /etc/supervisor/conf.d/api.conf
+COPY ./server/scripts/webdocker/config/webmazey/supervisor-nginx.conf /etc/supervisor/conf.d/nginx.conf
 # Entrypoint Script
-COPY ./conf/config/dockermazey/docker-entrypoint.sh /web/docker-entrypoint.sh
+COPY ./server/scripts/webdocker/config/webmazey/docker-entrypoint.sh /web/docker-entrypoint.sh
 RUN dos2unix /web/docker-entrypoint.sh && \
     chmod +x /web/docker-entrypoint.sh
 EXPOSE 80
